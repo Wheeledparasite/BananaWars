@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player/BananaPlayer/BananaMan 2.0.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Player/BananaPlayer/BananaMan 2.0 skin.png" type="Texture" id=2]
@@ -6,12 +6,16 @@
 [ext_resource path="res://Models/Weapons/AK-47.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player/BananaPlayer/BananaPlayer.gd" type="Script" id=5]
 [ext_resource path="res://Player/BananaPlayer/3rdPersonController.gd" type="Script" id=6]
+[ext_resource path="res://src/states/state_manager.gd" type="Script" id=7]
+[ext_resource path="res://Player/BananaPlayer/idle.gd" type="Script" id=8]
+[ext_resource path="res://Player/BananaPlayer/walk.gd" type="Script" id=9]
+[ext_resource path="res://Player/BananaPlayer/jump.gd" type="Script" id=10]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
 
 [sub_resource type="BoxShape" id=5]
-extents = Vector3( 0.281482, 0.111308, 0.521614 )
+extents = Vector3( 0.217784, 0.111308, 0.521614 )
 
 [sub_resource type="Animation" id=6]
 length = 0.001
@@ -70,3 +74,15 @@ shape = SubResource( 5 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 6 )
 anims/move = SubResource( 7 )
+
+[node name="state_manager" type="Node" parent="."]
+script = ExtResource( 7 )
+
+[node name="idle" type="Node" parent="state_manager"]
+script = ExtResource( 8 )
+
+[node name="walk" type="Node" parent="state_manager"]
+script = ExtResource( 9 )
+
+[node name="jump" type="Node" parent="state_manager"]
+script = ExtResource( 10 )

@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "BaseState",
+"language": "GDScript",
+"path": "res://src/states/base_state.gd"
+}, {
 "base": "Spatial",
 "class": "Bullet",
 "language": "GDScript",
@@ -18,10 +23,17 @@ _global_script_classes=[ {
 "class": "BulletGlow",
 "language": "GDScript",
 "path": "res://Bullet/BulletGlow.gd"
+}, {
+"base": "KinematicBody",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player/BananaPlayer/BananaPlayer.gd"
 } ]
 _global_script_class_icons={
+"BaseState": "",
 "Bullet": "",
-"BulletGlow": ""
+"BulletGlow": "",
+"Player": ""
 }
 
 [application]

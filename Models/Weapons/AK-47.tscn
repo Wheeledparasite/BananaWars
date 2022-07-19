@@ -31,6 +31,7 @@ roughness = 0.0
 extents = Vector3( 0.71113, 0.20036, 0.0318918 )
 
 [node name="AK-47" type="RigidBody"]
+gravity_scale = 0.0
 script = ExtResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]

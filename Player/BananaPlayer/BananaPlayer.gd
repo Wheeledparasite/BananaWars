@@ -1,3 +1,4 @@
+class_name Player
 extends KinematicBody
 
 var gravity = Vector3.DOWN * 27  # strength of gravity
@@ -22,6 +23,8 @@ var _camera_y := 0.0
 
 onready var camera := $Arms/Camera
 onready var target_ray := $Arms/Camera/RayMount/LookAtRayCast
+onready var animations = $AnimationPlayer
+onready var states = $state_manager
 #shooting script
 var target := Vector3.INF
 var ray_length := 3000
@@ -29,26 +32,28 @@ var ray_length := 3000
 func _ready():
 	set_as_toplevel(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	states.init(self)
 
-func get_input():
-	var vy = velocity.y
-	var input_direction : Vector3 = (_input_vector.x * transform.basis.x) + (_input_vector.z * transform.basis.z)
-	var is_moving : bool = input_direction != Vector3.ZERO
-	velocity = Vector3()
-	if Input.is_action_pressed("move_forward"):
-		velocity += -transform.basis.z * speed
-	if Input.is_action_pressed("move_back"):
-		velocity += transform.basis.z * speed
-	if Input.is_action_pressed("move_right"):
-		velocity += transform.basis.x * speed
-	if Input.is_action_pressed("move_left"):
-		velocity += -transform.basis.x * speed
-	velocity.y = vy
-	jump = false
-	if Input.is_action_just_pressed("jump"):
-		jump = true
-	if Input.is_action_pressed("Quit"): #esc
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+#func get_input():
+#	var vy = velocity.y
+#	var input_direction : Vector3 = (_input_vector.x * transform.basis.x) + (_input_vector.z * transform.basis.z)
+#	var is_moving : bool = input_direction != Vector3.ZERO
+#	velocity = Vector3()
+#	if Input.is_action_pressed("move_forward"):
+#		velocity += -transform.basis.z * speed
+#	if Input.is_action_pressed("move_back"):
+#		velocity += transform.basis.z * speed
+#	if Input.is_action_pressed("move_right"):
+#		velocity += transform.basis.x * speed
+#	if Input.is_action_pressed("move_left"):
+#		velocity += -transform.basis.x * speed
+#	velocity.y = vy
+#	jump = false
+#	if Input.is_action_just_pressed("jump"):
+#		jump = true
+#	if Input.is_action_pressed("Quit"): #esc
+#		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 
 func _process(delta : float) -> void:
 	_latest_mouse_pos = get_viewport().get_mouse_position()
@@ -86,6 +91,7 @@ func _process(delta : float) -> void:
 			weapon.fire(target)
 
 func _unhandled_input(event):
+	states.input(event)
 	# orbit the cam around the banana horizontally
 	if event is InputEventMouseMotion:
 		if event.relative.x > 0:
@@ -94,12 +100,13 @@ func _unhandled_input(event):
 			rotate_y(-lerp(0, horizontalSensitivity*10, event.relative.x/10))
 
 func _physics_process(delta):
-	velocity += gravity * delta
-	get_input()
-	velocity = move_and_slide(velocity, Vector3.UP)
-	if (velocity.length() > 0.1):
-		$AnimationPlayer.play("move")
-	else:
-		$AnimationPlayer.stop()
-	if jump and is_on_floor():
-		velocity.y = jump_speed
+	states.physics_process(delta)
+#	velocity += gravity * delta
+#	get_input()
+#	velocity = move_and_slide(velocity, Vector3.UP)
+#	if (velocity.length() > 0.1):
+#		$AnimationPlayer.play("move")
+#	else:
+#		$AnimationPlayer.stop()
+#	if jump and is_on_floor():
+#		velocity.y = jump_speed
