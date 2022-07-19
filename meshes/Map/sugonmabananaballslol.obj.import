@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/sugonmabananaballslol.obj-96cf8d2b9f8a081b305231bb98b1486a.mesh"
+
+[deps]
+
+files=[ "res://.import/sugonmabananaballslol.obj-96cf8d2b9f8a081b305231bb98b1486a.mesh" ]
+
+source_file="res://meshes/Map/sugonmabananaballslol.obj"
+dest_files=[ "res://.import/sugonmabananaballslol.obj-96cf8d2b9f8a081b305231bb98b1486a.mesh", "res://.import/sugonmabananaballslol.obj-96cf8d2b9f8a081b305231bb98b1486a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

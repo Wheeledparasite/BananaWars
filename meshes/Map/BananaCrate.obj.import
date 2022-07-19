@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/BananaCrate.obj-d46a8506af13ea9de49cba4cf6e6edfa.mesh"
+
+[deps]
+
+files=[ "res://.import/BananaCrate.obj-d46a8506af13ea9de49cba4cf6e6edfa.mesh" ]
+
+source_file="res://meshes/Map/BananaCrate.obj"
+dest_files=[ "res://.import/BananaCrate.obj-d46a8506af13ea9de49cba4cf6e6edfa.mesh", "res://.import/BananaCrate.obj-d46a8506af13ea9de49cba4cf6e6edfa.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

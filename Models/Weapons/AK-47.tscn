@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://meshes/Weapons/Low Poly AK/source/AK47.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Models/Weapons/AK-47.gd" type="Script" id=2]
+[ext_resource path="res://sounds/8-bit-gun-1-5.wav" type="AudioStream" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+resource_name = "Материал"
+albedo_color = Color( 1, 0.792157, 0, 1 )
+metallic = 0.975
+roughness = 0.25
+
+[sub_resource type="SpatialMaterial" id=2]
+resource_name = "Материал.003"
+albedo_color = Color( 0.457531, 0.145204, 0.00271205, 1 )
+roughness = 0.15
+
+[sub_resource type="SpatialMaterial" id=3]
+resource_name = "Материал.002"
+albedo_color = Color( 0.372549, 0.301961, 0.301961, 1 )
+metallic = 0.975
+roughness = 0.4
+
+[sub_resource type="SpatialMaterial" id=4]
+resource_name = "Материал.001"
+albedo_color = Color( 0.0100217, 0.0100217, 0.0100217, 1 )
+metallic = 0.975
+roughness = 0.0
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.71113, 0.20036, 0.0318918 )
+
+[node name="AK-47" type="RigidBody"]
+script = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 1 )
+material/3 = SubResource( 2 )
+material/4 = SubResource( 2 )
+material/5 = SubResource( 3 )
+material/6 = SubResource( 3 )
+material/7 = SubResource( 1 )
+material/8 = SubResource( 3 )
+material/9 = SubResource( 3 )
+material/10 = SubResource( 3 )
+material/11 = SubResource( 3 )
+material/12 = SubResource( 3 )
+material/13 = SubResource( 4 )
+material/14 = SubResource( 3 )
+material/15 = SubResource( 3 )
+material/16 = SubResource( 3 )
+material/17 = SubResource( 3 )
+material/18 = SubResource( 3 )
+material/19 = SubResource( 3 )
+
+[node name="BulletStartPosition" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.732108, 0.139186, 0.000123441 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="apply_force" from="." to="." method="_on_apply_force"]

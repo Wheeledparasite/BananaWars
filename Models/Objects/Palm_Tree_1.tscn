@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://meshes/Map/Palm1.obj" type="ArrayMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.0823529, 0.509804, 0, 1 )
+roughness = 0.5
+
+[sub_resource type="CylinderShape" id=1]
+height = 20.7996
+
+[node name="Palm_Tree_1" type="StaticBody"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.221, 0, -99.471 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.4373, 0 )
+shape = SubResource( 1 )

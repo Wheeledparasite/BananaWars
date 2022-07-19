@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://textures/smooth+sand+dunes-2048x2048.png" type="Texture" id=1]
+[ext_resource path="res://textures/Daylight Box_0.png" type="Texture" id=2]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 1, 0.827451, 0.721569, 1 )
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 5 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 1.00107, 1, 1.00031 )
+
+[sub_resource type="PanoramaSky" id=6]
+panorama = ExtResource( 2 )
+
+[sub_resource type="Environment" id=7]
+background_mode = 2
+background_sky = SubResource( 6 )
+ambient_light_color = Color( 0.603922, 0.941176, 0.921569, 1 )
+ambient_light_energy = 1.2
+ss_reflections_enabled = true
+ssao_color = Color( 1, 0, 0, 1 )
+dof_blur_far_distance = 200.0
+dof_blur_far_transition = 15.0
+dof_blur_far_quality = 2
+
+[node name="Environment" type="StaticBody"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 100, 0, 0, 0, 0.2, 0, 0, 0, 100, 0, 0, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 100, 0, 0, 0, 0.25, 0, 0, 0, 100, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 7 )

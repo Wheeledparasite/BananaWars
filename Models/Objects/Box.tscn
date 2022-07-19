@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Models/Objects/Box.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.368627, 0.34902, 0.34902, 1 )
+metallic = 1.0
+roughness = 0.6
+
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 4 )
+
+[node name="Box" type="RigidBody" groups=["item"]]
+mass = 7.61
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 3 )
+material/0 = null
+
+[connection signal="apply_force" from="." to="." method="_on_apply_force"]

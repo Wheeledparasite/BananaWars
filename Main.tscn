@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Environment.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Models/Objects/Wall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/BananaPlayer/BananaPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Models/Objects/Box.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Models/Objects/BananaCrate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Models/Objects/Banana_Tree_1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Models/Objects/Banana_Tree_2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Models/Objects/Banana_Tree_3.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Models/Objects/Bazaar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Models/Objects/Palm_Tree_1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Models/Objects/Palm_Tree_2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://SteelBlock.tscn" type="PackedScene" id=12]
+[ext_resource path="res://World.gd" type="Script" id=13]
+
+[node name="Main" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0178528, 0.0835609, 0.0145187 )
+script = ExtResource( 13 )
+
+[node name="BananaPlayer" parent="." instance=ExtResource( 3 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.60376, 0 )
+
+[node name="Environment" parent="." instance=ExtResource( 1 )]
+
+[node name="Sun" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.890578, 0.45483, 0, -0.45483, -0.890578, 0, 223.142, -571.655 )
+light_color = Color( 1, 0.909804, 0.505882, 1 )
+light_energy = 1.276
+light_indirect_energy = 1.197
+light_specular = 0.884
+shadow_enabled = true
+shadow_bias = 0.101
+directional_shadow_split_1 = 0.186
+directional_shadow_split_2 = 0.354
+directional_shadow_split_3 = 0.598
+directional_shadow_bias_split_scale = 0.0
+
+[node name="Wall" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1227, 1, 0 )
+
+[node name="Wall2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -7.295, 0, -18.393 )
+
+[node name="Wall3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 3.85537, 0, 14.129 )
+
+[node name="Wall4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2904, 0.250039, 10.1199 )
+
+[node name="Wall5" parent="." instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.7677, 1, -20.483 )
+
+[node name="Box" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.26539, 1.1577, -6.24793 )
+
+[node name="Box2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.72946, 0.894733, -9.08062 )
+
+[node name="Box3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.89242, 1.16123, -18.3122 )
+
+[node name="BananaCrate" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9972, 1.86689, -7.49243 )
+
+[node name="Banana_Tree_1" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0.69607, -34 )
+
+[node name="Banana_Tree_2" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.95303, -15.4209 )
+
+[node name="Banana_Tree_3" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8088, 0.250038, -8.60279 )
+
+[node name="Palm_Tree_1" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0631, -0.422259, 22.9469 )
+
+[node name="Palm_Tree_2" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5967, 0.106459, -47.3828 )
+
+[node name="Palm_Tree_3" parent="." instance=ExtResource( 11 )]
+transform = Transform( -0.0343762, 0, -0.999409, 0, 1, 0, 0.999409, 0, -0.0343762, 52.9644, 0.205297, -22.6392 )
+
+[node name="Bazaar" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.174817, 0, 0.984601, 0, 1, 0, -0.984601, 0, 0.174817, -7.8702, -0.335762, 56.2756 )
+
+[node name="SteelBlock" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.07851, 4.65081, -9.88294 )
