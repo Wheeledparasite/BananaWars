@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ak-47.ogg-e92285599a170406cc0a296cfdb8bb84.oggstr"
+
+[deps]
+
+source_file="res://sounds/ak-47.ogg"
+dest_files=[ "res://.import/ak-47.ogg-e92285599a170406cc0a296cfdb8bb84.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

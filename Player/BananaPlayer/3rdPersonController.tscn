@@ -18,7 +18,7 @@ enabled = true
 cast_to = Vector3( 0, 0, -100 )
 collision_mask = 146
 
-[node name="TextureRect" type="TextureRect" parent="Camera"]
+[node name="HUD" type="TextureRect" parent="Camera"]
 anchor_left = 0.474
 anchor_top = 0.375
 anchor_right = 0.5

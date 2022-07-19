@@ -2,7 +2,7 @@
 
 [ext_resource path="res://meshes/Weapons/Low Poly AK/source/AK47.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Models/Weapons/AK-47.gd" type="Script" id=2]
-[ext_resource path="res://sounds/8-bit-gun-1-5.wav" type="AudioStream" id=3]
+[ext_resource path="res://sounds/ak-47.ogg" type="AudioStream" id=3]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "Материал"
@@ -66,4 +66,8 @@ shape = SubResource( 5 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
+[node name="ShotTimer" type="Timer" parent="."]
+wait_time = 0.25
+
 [connection signal="apply_force" from="." to="." method="_on_apply_force"]
+[connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
