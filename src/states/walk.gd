@@ -31,7 +31,6 @@ func input(event: InputEvent) -> int:
 func physics_process(delta: float) -> int:
 	player.velocity += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector3.UP)
-	print(player.velocity)
 	if player.jump and player.is_on_floor():
 		player.velocity.y = player.jump_speed
 		
