@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://meshes/Weapons/Low Poly AK/source/AK47.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Models/Weapons/AK-47.gd" type="Script" id=2]
@@ -30,12 +30,35 @@ roughness = 0.0
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 0.71113, 0.20036, 0.0318918 )
 
+[sub_resource type="ParticlesMaterial" id=6]
+spread = 25.59
+initial_velocity = 19.61
+initial_velocity_random = 1.0
+linear_accel = 11.76
+scale_random = 1.0
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.933333, 0.513726, 0.109804, 1 )
+roughness = 0.39
+emission_enabled = true
+emission = Color( 0.921569, 0.768627, 0.313726, 1 )
+emission_energy = 1.59
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=8]
+material = SubResource( 7 )
+radius = 0.004
+height = 0.002
+radial_segments = 8
+rings = 8
+
 [node name="AK-47" type="RigidBody"]
 gravity_scale = 0.0
 script = ExtResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0, 0 )
+transform = Transform( 0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0.281141, 0, 0 )
 mesh = ExtResource( 1 )
 material/0 = SubResource( 1 )
 material/1 = SubResource( 2 )
@@ -59,16 +82,28 @@ material/18 = SubResource( 3 )
 material/19 = SubResource( 3 )
 
 [node name="BulletStartPosition" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.732108, 0.139186, 0.000123441 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.01325, 0.139186, 0.000123441 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.281141, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
 [node name="ShotTimer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.14
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98767, 0.138819, 0 )
+emitting = false
+amount = 75
+lifetime = 0.02
+one_shot = true
+explosiveness = 0.15
+randomness = 1.0
+process_material = SubResource( 6 )
+draw_pass_1 = SubResource( 8 )
 
 [connection signal="apply_force" from="." to="." method="_on_apply_force"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]

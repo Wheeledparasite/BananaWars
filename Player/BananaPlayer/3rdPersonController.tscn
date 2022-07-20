@@ -5,7 +5,7 @@
 [node name="Arms" type="Spatial"]
 
 [node name="Camera" type="ClippedCamera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.98689, 0.161397, 0, -0.161397, 0.98689, 0.505612, 0.257775, 1.54197 )
+transform = Transform( 1, 0, 0, 0, 0.98689, 0.161397, 0, -0.161397, 0.98689, 0.5585, 0.257775, 1.54197 )
 current = true
 far = 300.0
 

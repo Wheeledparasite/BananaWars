@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ak-47.ogg-e92285599a170406cc0a296cfdb8bb84.oggstr" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -2,7 +2,7 @@ class_name Player
 extends KinematicBody
 
 var gravity = Vector3.DOWN * 27  # strength of gravity
-var speed = 5  # movement speed
+export var speed : int = 5  # movement speed
 var jump_speed = 14  # jump strength
 var spin = 0.03  # rotation speed
 
@@ -21,6 +21,7 @@ var _camera_x := 0.0
 var _camera_x_new := 0.0
 var _camera_y := 0.0
 
+onready var arms := $Arms
 onready var camera := $Arms/Camera
 onready var target_ray := $Arms/Camera/RayMount/LookAtRayCast
 onready var animations = $AnimationPlayer
@@ -83,7 +84,7 @@ func _process(delta : float) -> void:
 	#print(target)
 	
 	var is_shooting := false
-	if Input.is_action_just_pressed("mouse1"): #left click
+	if Input.is_action_pressed("mouse1"): #left click
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		is_shooting = true
 	if is_shooting:

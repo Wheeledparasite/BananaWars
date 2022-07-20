@@ -28,7 +28,7 @@ func _physics_process(delta : float) -> void:
 func _process(delta : float) -> void:
 	# Draw the line
 	clear()
-	begin(1, null)
+	begin(Mesh.PRIMITIVE_LINES, null)
 	for i in _points.size():
 		if i + 1 < _points.size():
 			var a = _points[i]

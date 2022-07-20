@@ -25,8 +25,8 @@ transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.60376, 0 )
 
 [node name="Sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.890578, 0.45483, 0, -0.45483, -0.890578, 0, 223.142, -571.655 )
+visible = false
 light_color = Color( 1, 0.909804, 0.505882, 1 )
-light_energy = 1.276
 light_indirect_energy = 1.197
 light_specular = 0.884
 shadow_enabled = true

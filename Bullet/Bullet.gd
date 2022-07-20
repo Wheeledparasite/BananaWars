@@ -51,8 +51,8 @@ func _physics_process(delta : float) -> void:
 		if collider.is_in_group("item"):
 			# Nudge the object
 			var force := _mass * _velocity.length()
-			collider.emit_signal("apply_force", -self.transform.basis.z, force)
-
+#			collider.emit_signal("apply_force", -self.transform.basis.z, force)
+			collider.emit_signal("apply_force", _ray.get_collision_point(), -_ray.get_collision_normal())
 			# Ricochet the bullet if the item is steel or concrete
 			if collider._element in [Global.Element.Steel, Global.Element.Concrete]:
 				# Remove 20% of the bullet's speed

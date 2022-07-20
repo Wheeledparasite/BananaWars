@@ -14,6 +14,7 @@ func fire(target_pos : Vector3) -> void:
 	var start_pos = $BulletStartPosition.global_transform.origin
 	if (_can_shoot):
 		Global.create_bullet(Global._root_node, start_pos, target_pos, bullet_type)
+		$Particles.emitting = true
 		_audiostream.play()
 		$ShotTimer.start()
 		_can_shoot = false
