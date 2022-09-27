@@ -56,7 +56,7 @@ func _ready():
 #		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
-func _process(delta : float) -> void:
+func _process(_delta : float) -> void:
 	_latest_mouse_pos = get_viewport().get_mouse_position()
 	#var from = camera.project_ray_origin(_latest_mouse_pos)
 	#var to = from + camera.project_ray_normal(_latest_mouse_pos) * ray_length

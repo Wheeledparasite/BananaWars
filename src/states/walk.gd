@@ -2,7 +2,7 @@ extends BaseState
 var direction = Vector3.ZERO
 
 
-func input(event: InputEvent) -> int:
+func input(_event: InputEvent) -> int:
 	var vy = player.velocity.y
 	var input_direction : Vector3 = (player._input_vector.x * player.transform.basis.x) + (player._input_vector.z * player.transform.basis.z)
 	var is_moving : bool = input_direction != Vector3.ZERO

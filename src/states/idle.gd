@@ -1,6 +1,6 @@
 extends BaseState
 
-func input(event: InputEvent) -> int:
+func input(_event: InputEvent) -> int:
 	player.jump = false
 	if Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left"):
 		return State.Walk

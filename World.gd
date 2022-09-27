@@ -8,7 +8,7 @@ func _ready() -> void:
 	$BananaPlayer.set_process_input(true)
 	$BananaPlayer.set_process(true)
 
-func _input(event) -> void:
+func _input(_event) -> void:
 	if Input.is_action_just_pressed("Quit"):
 		self.get_tree().quit()
 	elif Input.is_action_just_released("ToggleFullScreen"):

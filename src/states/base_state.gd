@@ -24,11 +24,11 @@ func exit() -> void:
 	pass
 
 # Enums are internally stored as ints, so that is the expected return type
-func input(event: InputEvent) -> int:
+func input(_event: InputEvent) -> int:
 	return State.Null
 
-func process(delta: float) -> int:
+func process(_delta: float) -> int:
 	return State.Null
 
-func physics_process(delta: float) -> int:
+func physics_process(_delta: float) -> int:
 	return State.Null
