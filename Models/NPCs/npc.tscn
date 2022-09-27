@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Models/NPCs/npc.gltf" type="PackedScene" id=1]
+[ext_resource path="res://src/npc_controller.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.398661
+height = 2.0337
+
+[node name="npc" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Node2" parent="." index="0"]
+transform = Transform( 0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0 )
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Idle"
+
+[node name="KinematicBody" type="KinematicBody" parent="." index="2" groups=["npc"]]
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.30255, 0.054504 )
+shape = SubResource( 1 )

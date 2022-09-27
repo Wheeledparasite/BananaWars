@@ -64,6 +64,10 @@ func _physics_process(delta : float) -> void:
 				self.look_at(global_transform.origin - _velocity, Vector3.UP)
 			else:
 				self.queue_free()
+		elif collider.is_in_group("npc"): # bullet just hit the npc
+			print("hit npc")
+			var npc = collider.get_parent()
+			npc.hit(5)
 		else:
 			self.queue_free()
 

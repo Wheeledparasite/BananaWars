@@ -21,6 +21,5 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 3 )
-material/0 = null
 
 [connection signal="apply_force" from="." to="." method="_on_apply_force"]
