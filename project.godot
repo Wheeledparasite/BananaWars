@@ -111,4 +111,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/subsurface_scattering/quality=0
 environment/default_environment="res://default_env.tres"

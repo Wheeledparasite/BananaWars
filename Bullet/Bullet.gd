@@ -65,7 +65,6 @@ func _physics_process(delta : float) -> void:
 			else:
 				self.queue_free()
 		elif collider.is_in_group("npc"): # bullet just hit the npc
-			print("hit npc")
 			collider.hit(5)
 		else:
 			self.queue_free()
