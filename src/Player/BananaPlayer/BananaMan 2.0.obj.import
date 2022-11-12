@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/BananaMan 2.0.obj-b4bf26c75529b71b186ab5a5be752543.mesh"
+
+[deps]
+
+files=[ "res://.import/BananaMan 2.0.obj-b4bf26c75529b71b186ab5a5be752543.mesh" ]
+
+source_file="res://src/Player/BananaPlayer/BananaMan 2.0.obj"
+dest_files=[ "res://.import/BananaMan 2.0.obj-b4bf26c75529b71b186ab5a5be752543.mesh", "res://.import/BananaMan 2.0.obj-b4bf26c75529b71b186ab5a5be752543.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

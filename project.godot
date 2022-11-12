@@ -17,17 +17,17 @@ _global_script_classes=[ {
 "base": "Spatial",
 "class": "Bullet",
 "language": "GDScript",
-"path": "res://Bullet/Bullet.gd"
+"path": "res://src/Bullet/Bullet.gd"
 }, {
 "base": "ImmediateGeometry",
 "class": "BulletGlow",
 "language": "GDScript",
-"path": "res://Bullet/BulletGlow.gd"
+"path": "res://src/Bullet/BulletGlow.gd"
 }, {
-"base": "KinematicBody",
+"base": "Reference",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Player/BananaPlayer/BananaPlayer.gd"
+"path": "res://src/Player/BananaPlayer/BananaPlayer.gd"
 } ]
 _global_script_class_icons={
 "BaseState": "",
@@ -39,12 +39,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Banana Wars"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://scenes/Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://Global.gd"
+Global="*res://src/Global.gd"
 
 [input]
 
@@ -104,6 +104,10 @@ run={
 3d_physics/layer_1="player"
 3d_physics/layer_2="enemies"
 3d_physics/layer_3="world"
+
+[mono]
+
+project/assembly_name="Banana Wars"
 
 [physics]
 
