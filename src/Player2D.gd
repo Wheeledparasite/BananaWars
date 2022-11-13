@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
 const WALK_FORCE : int = 1000
-const WALK_MAX_SPEED : int = 85
+const WALK_MAX_SPEED : int = 95
 const STOP_FORCE : int = 1300
-const JUMP_SPEED : int = 100
+const JUMP_SPEED : int = 150
 
 var velocity = Vector2()
 
@@ -16,17 +16,17 @@ func _process(_delta):
 	else:
 		$AnimatedSprite.playing = false
 
-func _input(event):
-	# Detect event based on Input Map value
-	if event.is_action_pressed("move_forward"):
-		print("Up was pressed")
-
 func _physics_process(delta):
 	var left = Input.get_action_strength("move_right")
 	var right = Input.get_action_strength("move_left")
 
 	# Horizontal movement code. First, get the player's input.
 	var walk = WALK_FORCE * (left - right)
+	
+	if (walk < 0):
+		$AnimatedSprite.flip_h = true
+	elif (walk > 0):
+		$AnimatedSprite.flip_h = false
 	
 	# Slow down the player if they're not trying to move.
 	if abs(walk) < WALK_FORCE * 0.2:

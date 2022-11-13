@@ -36,8 +36,8 @@
 [ext_resource path="res://src/Player2D.gd" type="Script" id=34]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 18.0
-height = 62.0
+radius = 11.0
+height = 38.0
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -55,7 +55,7 @@ position = Vector2( -4, 0 )
 shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.25, 0.25 )
+scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 1 )
-frame = 11
+frame = 24
 playing = true
