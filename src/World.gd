@@ -3,7 +3,6 @@ extends Spatial
 
 func _ready() -> void:
 	Global._root_node = self
-
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$BananaPlayer.set_process_input(true)
 	$BananaPlayer.set_process(true)

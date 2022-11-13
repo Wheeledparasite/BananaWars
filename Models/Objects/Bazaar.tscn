@@ -103,5 +103,5 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 1, 4.18468, 6.28753, -24.0169 )
 frames = SubResource( 4 )
-frame = 55
+frame = 62
 playing = true
