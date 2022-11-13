@@ -2,7 +2,7 @@
 A simple FPS game that will eventually become a STEAM best seller!
 
 ### Software Development
-* Game Developed in [Godot 3.4.4](https://godotengine.org/download/windows)
+* Game Developed in [Godot 3.5.1](https://godotengine.org/download/windows)
 * [GitKraken](https://www.gitkraken.com) - For git UI
 
 ### Learn Godot and GDScript
