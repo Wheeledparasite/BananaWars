@@ -10,7 +10,7 @@ var velocity = Vector2()
 onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Called when the node enters the scene tree for the first time.
-func _process(delta):
+func _process(_delta):
 	if velocity.length() > 0.5:
 		$AnimatedSprite.playing = true
 	else:
