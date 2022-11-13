@@ -5,18 +5,19 @@ const WALK_MAX_SPEED : int = 95
 const STOP_FORCE : int = 1300
 const JUMP_SPEED : int = 150
 
-var velocity = Vector2()
+var velocity : Vector2 = Vector2()
 
-onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+onready var _can_move : bool = true
+onready var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Called when the node enters the scene tree for the first time.
-func _process(_delta):
-	if velocity.length() > 0.5:
+func _process(_delta) -> void:
+	if velocity.length() > 0.5 and _can_move:
 		$AnimatedSprite.playing = true
 	else:
 		$AnimatedSprite.playing = false
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	var left = Input.get_action_strength("move_right")
 	var right = Input.get_action_strength("move_left")
 
@@ -44,10 +45,14 @@ func _physics_process(delta):
 	var stopOnSlope = get_floor_velocity().x != 0 or get_floor_velocity().y != 0
 	
 	# Move based on the velocity and snap to the ground.
-	velocity = move_and_slide_with_snap(velocity,Vector2.DOWN , Vector2.UP, !stopOnSlope )
+	if _can_move:
+		velocity = move_and_slide_with_snap(velocity,Vector2.DOWN , Vector2.UP, !stopOnSlope )
 
 	# Check for jumping. is_on_floor() must be called after movement code.
-	if is_on_floor() and Input.is_action_just_pressed("jump"):
+	if is_on_floor() and Input.is_action_just_pressed("jump") and _can_move:
 		position.y -= 1 # Ensures you dont collide with vertical platforms
 		velocity.y = -JUMP_SPEED
 		print ("jump")
+
+func set_can_move(val : bool) -> void:
+	_can_move = val

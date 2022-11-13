@@ -24,6 +24,7 @@ func _input(event):
 			if body == $BananaPlayer2D:
 				# 3D portal
 				print("3d Portal")
+				$BananaPlayer2D.set_can_move(false) # stop player from moving while door is opening
 				$Door1/AnimatedSprite.play("open")
 				$AudioStreamPlayer.play()
 				yield(get_tree().create_timer(1.5), "timeout")
@@ -36,6 +37,7 @@ func _input(event):
 			if body == $BananaPlayer2D:
 				# 2D portal
 				print("2d Portal")
+				$BananaPlayer2D.set_can_move(false) # stop player from moving while door is opening
 				$Door2/AnimatedSprite.play("open")
 				$AudioStreamPlayer.play()
 				yield(get_tree().create_timer(1.5), "timeout")
