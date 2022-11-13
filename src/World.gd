@@ -18,5 +18,8 @@ func _input(_event) -> void:
 func _on_PortalArea_body_entered(body):
 	if body == $BananaPlayer:
 		print("Detected player")
+		#$SfxPlayer.set_stream("res://sounds/teleport.wav")
+		$SfxPlayer.play()
+		yield(get_tree().create_timer(1), "timeout")
 		get_tree().change_scene("res://scenes/2D_MiniGame.tscn")
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/World.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Environment.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Models/Objects/Palm_Tree_1.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Models/NPCs/npc.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Models/Objects/Banana_Tree_3.tscn" type="PackedScene" id=14]
+[ext_resource path="res://sounds/teleport.wav" type="AudioStream" id=15]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 3.62775, 3.49387, 3.17984 )
@@ -122,5 +123,8 @@ collision_layer = 4
 
 [node name="npc" parent="." instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -35 )
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
 
 [connection signal="body_entered" from="Bazaar/PortalArea" to="." method="_on_PortalArea_body_entered"]
